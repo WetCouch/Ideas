@@ -1,0 +1,19 @@
+{
+  "name": "Ideas",
+  "version": "0.0.0",
+  "homepage": "https://github.com/WetCouch/Ideas",
+  "authors": [
+    "Wojtek Janoszek <wetcouch46wojtek@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
