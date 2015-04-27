@@ -26,6 +26,10 @@ a {
   background-color: #2D2D2D;
   width: 210px;
   color: #F0F2F2; }
+  #navbar .is-active {
+    background-color: #F0F2F2;
+    color: #2795CA;
+    font-family: Lato, sans-serif; }
 
 #ideas {
   flex-grow: 3; }
@@ -51,5 +55,35 @@ a {
 
 .content {
   flex-grow: 20; }
+
+.con-line {
+  background-color: #ED5642;
+  height: 1px;
+  width: 70%; }
+
+.clock {
+  display: flex;
+  padding-top: 20px;
+  justify-content: center; }
+
+.navigation {
+  font-family: 'Lato-Light', sans-serif;
+  font-size: 16px;
+  color: #F0F2F2;
+  display: flex;
+  align-items: center; }
+
+.nav-button {
+  background: #ED5642;
+  border: 1px solid #ED5642;
+  border-radius: 4px;
+  width: 126px;
+  height: 32px;
+  justify-content: center;
+  margin: 60px auto 40px auto; }
+
+.nav-link {
+  padding-left: 25px;
+  height: 37px; }
 
 /*# sourceMappingURL=styles.css.map */

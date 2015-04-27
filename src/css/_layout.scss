@@ -6,7 +6,6 @@ html, body {
 }
 
 body {
-
   background-color: $colorLight;
   font-family: 'Lato-Light', sans-serif;
   font-size: 16px;
@@ -32,11 +31,15 @@ a {
   background-color: $colorDark;
   width: 210px;
   color: $colorLight;
+  .is-active {
+    background-color: $colorLight;
+    color: $colorBlue;
+    font-family: Lato, sans-serif;
+  }
 }
 
 #ideas {
   flex-grow: 3;
-
 }
 
 #redbar {
@@ -47,6 +50,7 @@ a {
 #description {
   display: flex;
   flex-direction: column;
+  flex-grow: 3;
   #header {
     display: flex;
     color: $colorLight;
@@ -59,7 +63,6 @@ a {
       width: 10%
     }
   }
-
-  flex-grow: 3;
 }
+
 

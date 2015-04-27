@@ -1,0 +1,22 @@
+.navigation {
+  font-family: 'Lato-Light', sans-serif;
+  font-size: 16px;
+  color: $colorLight;
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  background: #ED5642;
+  border: 1px solid #ED5642;
+  border-radius: 4px;
+  width: 126px;
+  height: 32px;
+  justify-content: center;
+  margin: 60px auto 40px auto;
+}
+
+.nav-link {
+  padding-left: 25px;
+  height: 37px;
+}
