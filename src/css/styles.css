@@ -45,7 +45,6 @@ a {
   #description #header {
     display: flex;
     color: #F0F2F2;
-    width: 100%;
     background-color: #2D2D2D;
     flex-grow: 1;
     align-items: center;
@@ -55,6 +54,16 @@ a {
 
 .content {
   flex-grow: 20; }
+
+.con-edit {
+  font-family: Lato, sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  color: #2795CA;
+  line-height: 22px;
+  top: 1%;
+  right: 5%;
+  left: auto; }
 
 .con-line {
   background-color: #ED5642;
@@ -80,7 +89,7 @@ a {
   width: 126px;
   height: 32px;
   justify-content: center;
-  margin: 60px auto 40px auto; }
+  margin: 40px auto 40px auto; }
 
 .nav-link {
   padding-left: 25px;
