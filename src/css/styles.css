@@ -1,3 +1,33 @@
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 html, body {
   padding: 0;
   margin: 0;
@@ -11,6 +41,13 @@ body {
   flex-direction: row; }
 
 h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 49px;
+  font-weight: 100;
+  font-style: italic;
+  line-height: 58px; }
+
+h2 {
   font-family: 'Lato', sans-serif;
   font-size: 49px;
   font-weight: 100;
@@ -32,7 +69,7 @@ a {
     font-family: Lato, sans-serif; }
 
 #ideas {
-  flex-grow: 3; }
+  flex: 3 0px; }
 
 #redbar {
   background: #ED5642;
@@ -41,7 +78,8 @@ a {
 #description {
   display: flex;
   flex-direction: column;
-  flex-grow: 3; }
+  flex: 3 0px;
+  border-left: solid #ED5642 3px; }
   #description #header {
     display: flex;
     color: #F0F2F2;
@@ -49,30 +87,34 @@ a {
     flex-grow: 1;
     align-items: center;
     box-shadow: 2px 3px 10px 0px #2D2D2D; }
-    #description #header :first-child {
-      width: 10%; }
+    #description #header .header-title {
+      margin-left: 10%; }
 
 .content {
-  flex-grow: 20; }
+  flex-grow: 7; }
 
 .con-edit {
   font-family: Lato, sans-serif;
   font-weight: 300;
   font-size: 18px;
   color: #2795CA;
-  line-height: 22px;
-  top: 1%;
-  right: 5%;
-  left: auto; }
+  width: 48px;
+  margin-top: 3%;
+  margin-right: 3%;
+  margin-left: auto; }
 
-.con-line {
-  background-color: #ED5642;
-  height: 1px;
-  width: 70%; }
+.con-text {
+  font-size: 16px;
+  margin-top: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-bottom: 5%;
+  border-bottom: solid #ED5642 1px; }
 
 .clock {
+  margin-top: 20%;
+  margin-bottom: 10%;
   display: flex;
-  padding-top: 20px;
   justify-content: center; }
 
 .navigation {
@@ -89,10 +131,28 @@ a {
   width: 126px;
   height: 32px;
   justify-content: center;
-  margin: 40px auto 40px auto; }
+  margin: 50px auto 50px auto; }
 
 .nav-link {
   padding-left: 25px;
-  height: 37px; }
+  height: 37px;
+  margin-top: 4px;
+  margin-bottom: 4px; }
+
+.list-header {
+  margin-left: 5%;
+  margin-top: 7%;
+  color: #ED5642; }
+
+.list {
+  margin-top: 15%;
+  margin-left: 15%;
+  margin-right: 15%; }
+  .list .list-component {
+    font-size: 16px;
+    border-bottom: solid #979797 1px;
+    margin-bottom: 3%; }
+    .list .list-component .list-title {
+      margin-bottom: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

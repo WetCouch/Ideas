@@ -1,5 +1,5 @@
 .content {
-  flex-grow: 20;
+  flex-grow: 7;
 }
 
 .con-edit {
@@ -7,14 +7,17 @@
   font-weight: 300;
   font-size: 18px;
   color: $colorBlue;
-  line-height: 22px;
-  top: 1%;
-  right: 5%;
-  left: auto;
+  width: 48px;
+  margin-top: 3%;
+  margin-right: 3%;
+  margin-left: auto;
 }
 
-.con-line {
-  background-color: $colorRed;
-  height: 1px;
-  width: 70%;
+.con-text {
+  font-size: 16px;
+  margin-top: 5%;
+  margin-left: 7%;
+  margin-right: 7%;
+  padding-bottom: 5%;
+  border-bottom: solid $colorRed 1px;
 }

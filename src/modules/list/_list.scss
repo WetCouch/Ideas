@@ -1,0 +1,19 @@
+.list-header {
+  margin-left: 5%;
+  margin-top: 7%;
+  color: $colorRed;
+}
+
+.list {
+  margin-top: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
+  .list-component {
+    font-size: 16px;
+    border-bottom: solid #979797 1px;
+    margin-bottom: 3%;
+    .list-title {
+      margin-bottom: 10px;
+    }
+  }
+}
