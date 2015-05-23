@@ -139,6 +139,17 @@ a {
   margin-top: 4px;
   margin-bottom: 4px; }
 
+.nav-icons {
+  font-size: 1.5vmax;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 25%; }
+  .nav-icons .nav-icon {
+    color: #ED5642; }
+  .nav-icons .is-unactive {
+    color: #444444; }
+
 .list-header {
   margin-left: 5%;
   margin-top: 7%;
@@ -149,12 +160,15 @@ a {
   margin-left: 15%;
   margin-right: 15%; }
   .list .list-component {
-    font-size: 1vmax;
+    font-size: 1.1vmax;
     border-bottom: solid #979797 1px;
     margin-bottom: 3%;
     padding-bottom: 3%; }
     .list .list-component .list-title {
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      color: #2795CA; }
+    .list .list-component .is-selected {
+      color: #BBCE28; }
     .list .list-component .list-icon {
       color: #ED5642;
       font-size: 1.1vmax;

@@ -9,13 +9,18 @@
   margin-left: 15%;
   margin-right: 15%;
   .list-component {
-    font-size: 1vmax;
+    font-size: 1.1vmax;
     border-bottom: solid #979797 1px;
     margin-bottom: 3%;
     padding-bottom: 3%;
     .list-title {
       margin-bottom: 20px;
+      color: $colorBlue;
     }
+    .is-selected {
+      color: $colorGreen;
+    }
+
     .list-icon {
       color: $colorRed;
       font-size: 1.1vmax;
