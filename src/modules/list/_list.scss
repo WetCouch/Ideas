@@ -9,11 +9,21 @@
   margin-left: 15%;
   margin-right: 15%;
   .list-component {
-    font-size: 16px;
+    font-size: 1vmax;
     border-bottom: solid #979797 1px;
     margin-bottom: 3%;
+    padding-bottom: 3%;
     .list-title {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .list-icon {
+      color: $colorRed;
+      font-size: 1.1vmax;
+      float: right;
+      margin-right: 5%;
+    }
+    .is-unactive {
+      color: $colorGray;
     }
   }
 }
