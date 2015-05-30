@@ -2,5 +2,7 @@
   margin-top: 20%;
   margin-bottom: 10%;
   display: flex;
+  display: -webkit-flex;
   justify-content: center;
+  -webkit-justify-content: center;
 }

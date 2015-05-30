@@ -1,9 +1,9 @@
 .navigation {
-  font-family: 'Lato-Light', sans-serif;
-  font-size: 16px;
   color: $colorLight;
   display: flex;
+  display: -webkit-flex;
   align-items: center;
+  -webkit-align-items: center;
 }
 
 .nav-button {
@@ -12,8 +12,10 @@
   border-radius: 4px;
   width: 126px;
   height: 32px;
-  justify-content: center;
+  display: inline-block;
+  text-align: center;
   margin: 50px auto 50px auto;
+  font-size: 16px;
 }
 
 .nav-link {
@@ -26,8 +28,11 @@
 .nav-icons {
   font-size: 25px;
   display: flex;
+  display: -webkit-flex;
   flex-direction: row;
+  -webkit-flex-direction: row;
   justify-content: space-around;
+  -webkit-justify-content: space-around;
   margin-top: 25%;
 
   a:hover {

@@ -6,10 +6,13 @@ html, body {
 
 body {
   background-color: $colorLight;
-  font-family: 'Lato-Light', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 16px;
+  font-weight: 300;
   display: flex;
+  display: -webkit-flex;
   flex-direction: row;
+  -webkit-flex-direction: row;
 }
 
 h1 {
@@ -34,7 +37,9 @@ a {
 
 #navbar {
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
   background-color: $colorDark;
   width: 210px;
   color: $colorLight;
@@ -47,6 +52,7 @@ a {
 
 #ideas {
   flex: 3 0px;
+  -webkit-flex: 3 0px;
 }
 
 #redbar {
@@ -56,15 +62,21 @@ a {
 
 #description {
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
   flex: 3 0px;
+  -webkit-flex: 3 0px;
   border-left: solid $colorRed 3px;
   #header {
     display: flex;
+    display: -webkit-flex;
     color: $colorLight;
     background-color: $colorDark;
     flex-grow: 1;
+    -webkit-flex-grow: 1;
     align-items: center;
+    -webkit-align-items: center;
     box-shadow: $shadows;
     .header-title {
       margin-left: 10%;
