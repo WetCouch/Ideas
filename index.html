@@ -11,6 +11,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="src/modules/navigation/navigation.js"></script>
     <script src="src/modules/clock/clock.js"></script>
+    <script src="src/modules/list/list.js"></script>
 </head>
 <body>
 <div id="navbar">
@@ -24,8 +25,8 @@
         <li><a href="" onClick="return false;" id="nav-5" class="navigation nav-link">Trash</a></li>
     </ul>
     <div class="nav-icons">
-        <a href="" class="nav-icon is-unactive"><i class="fa fa-plus fa-2x"></i></a>
-        <a href="" class="nav-icon is-unactive"><i class="fa fa-check fa-2x"></i></a>
+        <a href="" onClick="return false;" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
+        <a href="" onClick="return false;" class="nav-icon nav-icon-check is-unactive"><i class="fa fa-check fa-2x"></i></a>
     </div>
 </div>
 <div id="ideas">
@@ -33,16 +34,16 @@
 
     <ul class="list">
         <li><div class="list-component" id="l-1">
-            <a class="list-title is-selected" href="">Example</a>
-            <a class="list-icon" href=""><i class="fa fa-cogs fa-lg"></i></a>
-            <a class="list-icon" href=""><i class="fa fa-trash-o fa-lg"></i></a>
-            <a class="list-icon is-unactive" href=""><i class="fa fa-check fa-lg"></i></a>
+            <a class="list-title is-selected" href="" onClick="return false;">Example</a>
+            <a class="list-icon list-icon-settings" href="" onClick="return false;"><i class="fa fa-cogs fa-lg"></i></a>
+            <a class="list-icon list-icon-delete" href="" onClick="return false;"><i class="fa fa-trash-o fa-lg"></i></a>
+            <a class="list-icon list-icon-check is-unactive" href="" onClick="return false;"><i class="fa fa-check fa-lg"></i></a>
         </div></li>
         <li><div class="list-component" id="l-2">
-            <a class="list-title" href="">Idea</a>
-            <a class="list-icon" href=""><i class="fa fa-cogs fa-lg"></i></a>
-            <a class="list-icon" href=""><i class="fa fa-trash-o fa-lg"></i></a>
-            <a class="list-icon is-unactive" href=""><i class="fa fa-check fa-lg"></i></a>
+            <a class="list-title" href="" onClick="return false;">Idea</a>
+            <a class="list-icon list-icon-settings" href="" onClick="return false;"><i class="fa fa-cogs fa-lg"></i></a>
+            <a class="list-icon list-icon-delete" href="" onClick="return false;"><i class="fa fa-trash-o fa-lg"></i></a>
+            <a class="list-icon list-icon-check is-unactive" href="" onClick="return false;"><i class="fa fa-check fa-lg"></i></a>
         </div></li>
     </ul>
 </div>

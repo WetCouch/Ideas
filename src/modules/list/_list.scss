@@ -13,6 +13,9 @@
     border-bottom: solid #979797 1px;
     margin-bottom: 3%;
     padding-bottom: 3%;
+    a:hover {
+      color: red;
+    }
     .list-title {
       margin-bottom: 20px;
       color: $colorBlue;

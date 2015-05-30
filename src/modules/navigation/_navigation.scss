@@ -24,13 +24,18 @@
 }
 
 .nav-icons {
-  font-size: 1.5vmax;
+  font-size: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 25%;
+
+  a:hover {
+    color: $colorBlue;
+  }
+
   .nav-icon {
-    color: $colorRed;
+    color: $colorLight;
   }
   .is-unactive {
     color: #444444;

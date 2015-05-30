@@ -102,6 +102,8 @@ a {
   margin-top: 3%;
   margin-right: 3%;
   margin-left: auto; }
+  .con-edit a:hover {
+    color: #BBCE28; }
 
 .con-text {
   font-size: 16px;
@@ -141,13 +143,15 @@ a {
   margin-bottom: 4px; }
 
 .nav-icons {
-  font-size: 1.5vmax;
+  font-size: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 25%; }
+  .nav-icons a:hover {
+    color: #2795CA; }
   .nav-icons .nav-icon {
-    color: #ED5642; }
+    color: #F0F2F2; }
   .nav-icons .is-unactive {
     color: #444444; }
 
@@ -165,6 +169,8 @@ a {
     border-bottom: solid #979797 1px;
     margin-bottom: 3%;
     padding-bottom: 3%; }
+    .list .list-component a:hover {
+      color: red; }
     .list .list-component .list-title {
       margin-bottom: 20px;
       color: #2795CA; }
