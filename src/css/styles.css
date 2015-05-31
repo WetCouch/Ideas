@@ -47,15 +47,13 @@ h1 {
   font-family: 'Lato', sans-serif;
   font-size: 49px;
   font-weight: 100;
-  font-style: italic;
-  line-height: 58px; }
+  font-style: italic; }
 
 h2 {
   font-family: 'Lato', sans-serif;
   font-size: 49px;
   font-weight: 100;
-  font-style: italic;
-  line-height: 58px; }
+  font-style: italic; }
 
 a {
   text-decoration: none; }
@@ -133,7 +131,11 @@ a {
   display: flex;
   display: -webkit-flex;
   justify-content: center;
-  -webkit-justify-content: center; }
+  -webkit-justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 49px;
+  font-weight: 100;
+  font-style: italic; }
 
 .navigation {
   color: #F0F2F2;

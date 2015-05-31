@@ -13,10 +13,11 @@
     <script src="src/modules/navigation/navigation.js"></script>
     <script src="src/modules/clock/clock.js"></script>
     <script src="src/modules/list/list.js"></script>
+    <script src="src/init.js"></script>
 </head>
-<body>
+<body ng-app="ideas">
 <div id="navbar">
-    <h2 class="clock"></h2>
+    <clock class="clock"></clock>
     <button class="navigation nav-button">NEW</button>
     <ul>
        <li><a href="" onClick="return false;" id="nav-1" class="navigation nav-link is-active">Inbox</a></li>
