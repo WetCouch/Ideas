@@ -1,1 +1,1 @@
-angular.module('ideas', ['ideas.clock']);
+angular.module('ideas', ['ideas.clock', 'ideas.navigation']);

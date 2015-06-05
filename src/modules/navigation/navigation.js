@@ -1,17 +1,36 @@
 /**
  * Created by wetcouch on 19.05.2015.
  */
-$('document').ready(function () {
-    $(".nav-link").click(function () {
-        $(".nav-link").removeClass('is-active');
-        $("#" + this.id).addClass('is-active')
-    });
+angular.module('ideas.navigation', [])
+    .controller('navController', ['$scope', function($scope) {
+        $scope.cats = [
+            {
+                name: 'Everything',
+                id: 0
+            },
+            {
+                name: 'Big projects',
+                id: 1
+            },
+            {
+                name: 'Small ideas',
+                id: 2
+            },
+            {
+                name: 'Updates',
+                id: 3
+            },
+            {
+                name: 'Inbox',
+                id: 4
+            }
+        ];
 
-    $('.nav-icon-check').click(function () {
-        if ($(this).hasClass('is-unactive')) {
-            $(this).removeClass('is-unactive')
-        } else {
-            $(this).addClass('is-unactive')
-        }
-    })
-});
+        $scope.selectedIndex = 0;
+
+        $scope.itemClicked = function ($index) {
+            $scope.selectedIndex = $index;
+        };
+
+        $scope.isUnactive = true;
+    }]);

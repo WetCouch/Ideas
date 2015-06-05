@@ -24,6 +24,7 @@ function Clock (selector) {
         $(selector).text(hours + ":" + minutes);
     }
 
+    updateClock();
     this.interval = setInterval(updateClock, 1000);
 }
 
