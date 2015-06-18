@@ -27,18 +27,12 @@
         <a href="" onClick="return false;" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': isUnactive}" ng-click="isUnactive = !isUnactive"><i class="fa fa-check fa-2x"></i></a>
     </div>
 </div>
-<div id="ideas">
+<div id="ideas" ng-controller="listController">
     <h2 class="list-header">Inbox</h2>
 
-    <ul class="list">
-        <li><div class="list-component" id="l-1">
-            <a class="list-title is-selected" href="" onClick="return false;">Example</a>
-            <a class="list-icon list-icon-settings" href="" onClick="return false;"><i class="fa fa-cogs fa-lg"></i></a>
-            <a class="list-icon list-icon-delete" href="" onClick="return false;"><i class="fa fa-trash-o fa-lg"></i></a>
-            <a class="list-icon list-icon-check is-unactive" href="" onClick="return false;"><i class="fa fa-check fa-lg"></i></a>
-        </div></li>
-        <li><div class="list-component" id="l-2">
-            <a class="list-title" href="" onClick="return false;">Idea</a>
+    <ul class="list" ng-repeat="idea in ideas">
+        <li><div class="list-component" id="l-{{ idea.id }}">
+            <a class="list-title" href="" onClick="return false;">{{ idea.name }}</a>
             <a class="list-icon list-icon-settings" href="" onClick="return false;"><i class="fa fa-cogs fa-lg"></i></a>
             <a class="list-icon list-icon-delete" href="" onClick="return false;"><i class="fa fa-trash-o fa-lg"></i></a>
             <a class="list-icon list-icon-check is-unactive" href="" onClick="return false;"><i class="fa fa-check fa-lg"></i></a>
