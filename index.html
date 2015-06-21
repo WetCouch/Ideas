@@ -10,46 +10,48 @@
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="src/modules/project/project.js"></script>
     <script src="src/modules/navigation/navigation.js"></script>
     <script src="src/modules/clock/clock.js"></script>
     <script src="src/modules/list/list.js"></script>
+    <script src="src/modules/content/content.js"></script>
     <script src="src/init.js"></script>
 </head>
 <body ng-app="ideas">
 <div ng-controller="navController"  id="navbar">
     <clock class="clock"></clock>
-    <button class="navigation nav-button">NEW</button>
-    <ul ng-repeat="cat in cats">
-        <li><a href="" onClick="return false;" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" id="{{cat.id}}">{{cat.name}}</a></li>
+    <button class="navigation nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</button>
+    <ul>
+        <li ng-repeat="cat in cats"><input type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /></li>
     </ul>
     <div class="nav-icons">
-        <a href="" onClick="return false;" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
-        <a href="" onClick="return false;" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': isUnactive}" ng-click="isUnactive = !isUnactive"><i class="fa fa-check fa-2x"></i></a>
+        <a ng-click="addCategory()" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
+        <a class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': filters.isDone}" ng-click="filters.isDone = !filters.isDone"><i class="fa fa-check fa-2x"></i></a>
     </div>
 </div>
 <div id="ideas" ng-controller="listController">
-    <h2 class="list-header">Inbox</h2>
+    <h2 class="list-header">{{ category.name }}</h2>
 
-    <ul class="list" ng-repeat="idea in ideas">
-        <li><div class="list-component" id="l-{{ idea.id }}">
-            <a class="list-title" href="" onClick="return false;">{{ idea.name }}</a>
-            <a class="list-icon list-icon-settings" href="" onClick="return false;"><i class="fa fa-cogs fa-lg"></i></a>
-            <a class="list-icon list-icon-delete" href="" onClick="return false;"><i class="fa fa-trash-o fa-lg"></i></a>
-            <a class="list-icon list-icon-check is-unactive" href="" onClick="return false;"><i class="fa fa-check fa-lg"></i></a>
+    <ul class="list">
+        <li ng-repeat="task in category.tasks"><div class="list-component">
+            <input type="text"  class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)"/>
+            <a class="list-icon list-icon-settings"><i class="fa fa-cogs fa-lg"></i></a>
+            <a ng-click="removeTask($index)" class="list-icon list-icon-delete"><i class="fa fa-trash-o fa-lg"></i></a>
+            <a ng-click="toggleDone(task)" ng-class="{ 'is-unactive': !task.isDone }" class="list-icon list-icon-check"><i class="fa fa-check fa-lg"></i></a>
         </div></li>
     </ul>
 </div>
-<div id="description">
+<div id="description" ng-controller="contentController">
     <div id="header">
         <div class="header-title">
-            <h1>Lorem Ipsum</h1>
+            <h1>{{ task.name }}</h1>
         </div>
     </div>
-    <div class="content">
+    <div class="content" ng-show="task">
         <div class="con-edit">
             <a href="" onClick="return false;" class="con-edit">Edit...</a>
         </div>
-        <div class="con-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi. Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa nibh nec erat.</div>
+        <textarea class="con-text" ng-model="task.content"></textarea>
     </div>
 </div>
 </body>

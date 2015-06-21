@@ -1,36 +1,27 @@
 /**
  * Created by wetcouch on 19.05.2015.
  */
-angular.module('ideas.navigation', [])
-    .controller('navController', ['$scope', function($scope) {
-        $scope.cats = [
-            {
-                name: 'Everything',
-                id: 0
-            },
-            {
-                name: 'Big projects',
-                id: 1
-            },
-            {
-                name: 'Small ideas',
-                id: 2
-            },
-            {
-                name: 'Updates',
-                id: 3
-            },
-            {
-                name: 'Inbox',
-                id: 4
-            }
-        ];
+angular.module('ideas.navigation', ['ideas.project'])
+    .controller('navController', ['$scope', 'project', function ($scope, project) {
+        $scope.cats = project.getModel().categories;
+        $scope.filters = project.getFilters();
 
-        $scope.selectedIndex = 0;
+        $scope.selectedIndex = null;
 
         $scope.itemClicked = function ($index) {
             $scope.selectedIndex = $index;
+            var category = project.getCategoryByIndex($index);
+            project.setSelectedCategory(category);
         };
 
-        $scope.isUnactive = true;
+        $scope.addCategory = function () {
+            project.addCategory();
+        };
+
+        $scope.addTask = function () {
+            project.addTask();
+        };
+
+        $scope.itemClicked(0);
+
     }]);
