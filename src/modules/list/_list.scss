@@ -1,9 +1,18 @@
 .list-header {
   margin-left: 5%;
   margin-top: 7%;
+  width: 100%;
+  height: 20%;
   color: $colorRed;
+  a:hover {
+    color: red;
+  }
+  .list-settings {
+    font-size: 32px;
+    float: right;
+    margin-right: 15%;
+  }
 }
-
 .list {
   margin-top: 15%;
   margin-left: 15%;
@@ -23,7 +32,6 @@
     .is-selected {
       color: $colorGreen;
     }
-
     .list-icon {
       color: $colorRed;
       font-size: 1.1vmax;

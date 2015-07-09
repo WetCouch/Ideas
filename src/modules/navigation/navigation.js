@@ -21,7 +21,9 @@ angular.module('ideas.navigation', ['ideas.project'])
         $scope.addTask = function () {
             project.addTask();
         };
+        $scope.toggleShowDone = function () {
+          project.toggleShowDone();
+        };
 
         $scope.itemClicked(0);
-
     }]);

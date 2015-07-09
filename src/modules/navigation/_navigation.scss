@@ -23,8 +23,12 @@
 .nav-link {
   padding-left: 25px;
   height: 37px;
-  margin-top: 4px;
+  width: 140px;
+  margin-top: 7px;
   margin-bottom: 4px;
+  color: $colorDark;
+  background-color: $colorLight;
+  box-shadow: $shadows;
 }
 
 .nav-icons {

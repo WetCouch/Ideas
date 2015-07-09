@@ -42,9 +42,10 @@ a {
   width: 210px;
   color: $colorLight;
   .is-active {
-    background-color: $colorLight;
     color: $colorBlue;
     font-family: Lato, sans-serif;
+    width: 165px;
+    padding-left: 50px;
   }
 }
 

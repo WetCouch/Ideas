@@ -5,7 +5,7 @@
     <title>Ideas</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,100italic,300italic,400italic' rel='stylesheet'
           type='text/css'>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="src/css/styles.css" rel="stylesheet">
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -22,20 +22,23 @@
     <clock class="clock"></clock>
     <button class="navigation nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</button>
     <ul>
-        <li ng-repeat="cat in cats"><input type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /></li>
+        <li ng-repeat="cat in cats"><input ng-show="cat.inEdit" type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /><a ng-show="!cat.inEdit" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)">{{ cat.name }}</a></li>
     </ul>
     <div class="nav-icons">
         <a ng-click="addCategory()" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
-        <a class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': filters.isDone}" ng-click="filters.isDone = !filters.isDone"><i class="fa fa-check fa-2x"></i></a>
+        <a ng-click="toggleShowDone()" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': !filters.isDone}"><i class="fa fa-check fa-2x"></i></a>
     </div>
 </div>
 <div id="ideas" ng-controller="listController">
-    <h2 class="list-header">{{ category.name }}</h2>
-
+  <div class="list-header">
+    <h2>{{ category.name }}</h2>
+    <a ng-click="editCategory()" class="list-settings"><i class="fa fa-cogs fa-lg"></i></a>
+  </div>
     <ul class="list">
-        <li ng-repeat="task in category.tasks"><div class="list-component">
-            <input type="text"  class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)"/>
-            <a class="list-icon list-icon-settings"><i class="fa fa-cogs fa-lg"></i></a>
+        <li ng-repeat="task in category.tasks" ng-hide="!filters.isDone && task.isDone"><div class="list-component">
+            <input ng-show="task.titleInEdit" type="text" class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">
+            <a ng-show="!task.titleInEdit" class="list-title" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">{{ task.name }}</a>
+            <a ng-click="editTaskTitle(task)" class="list-icon list-icon-settings"><i class="fa fa-cogs fa-lg"></i></a>
             <a ng-click="removeTask($index)" class="list-icon list-icon-delete"><i class="fa fa-trash-o fa-lg"></i></a>
             <a ng-click="toggleDone(task)" ng-class="{ 'is-unactive': !task.isDone }" class="list-icon list-icon-check"><i class="fa fa-check fa-lg"></i></a>
         </div></li>
@@ -49,9 +52,12 @@
     </div>
     <div class="content" ng-show="task">
         <div class="con-edit">
-            <a href="" onClick="return false;" class="con-edit">Edit...</a>
+            <a ng-click="editContent()" class="con-edit">Edit...</a>
         </div>
-        <textarea class="con-text" ng-model="task.content"></textarea>
+        <textarea ng-show="task.contentInEdit" class="con-text con-text-edit" ng-model="task.content"></textarea>
+        <p ng-show="!task.contentInEdit" class="con-text">
+          {{ task.content }}
+        </p>
     </div>
 </div>
 </body>

@@ -5,6 +5,7 @@
 angular.module('ideas.list', ['ideas.project'])
     .controller('listController', ['$scope', 'project', function ($scope, project) {
         $scope.category = null;
+        $scope.filters = project.getFilters();
 
         $scope.$watch(function() {
             return project.getSelectedCategory();
@@ -27,5 +28,13 @@ angular.module('ideas.list', ['ideas.project'])
 
         $scope.toggleDone = function (task) {
             task.isDone = !task.isDone;
+        };
+
+        $scope.editTaskTitle = function (task) {
+          task.titleInEdit = !task.titleInEdit;
+        };
+
+        $scope.editCategory = function () {
+          project.editCategory();
         };
     }]);

@@ -11,5 +11,8 @@ angular.module('ideas.content', ['ideas.project'])
             $scope.task = task;
         });
 
+        $scope.editContent = function() {
+          project.editContent();
+        };
 
     }]);
