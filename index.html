@@ -32,7 +32,10 @@
 <div id="ideas" ng-controller="listController">
   <div class="list-header">
     <h2>{{ category.name }}</h2>
-    <a ng-click="editCategory()" class="list-settings"><i class="fa fa-cogs fa-lg"></i></a>
+    <div class="list-settings">
+      <a ng-click="removeCategory()" ng-show="category.inEdit"><i class="fa fa-trash-o fa-lg"></i></a>
+      <a ng-click="editCategory()"><i class="fa fa-cogs fa-lg"></i></a>
+    </div>
   </div>
     <ul class="list">
         <li ng-repeat="task in category.tasks" ng-hide="!filters.isDone && task.isDone"><div class="list-component">

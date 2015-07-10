@@ -27,8 +27,7 @@ angular.module('ideas.list', ['ideas.project'])
         };
 
         $scope.toggleDone = function (task) {
-            task.isDone = !task.isDone;
-            localStorage.setItem('model', JSON.stringify(model));
+            project.toggleDone(task);
         };
 
         $scope.editTaskTitle = function (task) {
@@ -36,6 +35,11 @@ angular.module('ideas.list', ['ideas.project'])
         };
 
         $scope.editCategory = function () {
+          project.editCategory();
+        };
+
+        $scope.removeCategory = function () {
+          project.removeCategory();
           project.editCategory();
         };
     }]);

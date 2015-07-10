@@ -91,8 +91,16 @@ angular.module('ideas.project', [])
       getCategoryByIndex: function(index) {
         return model.categories[index];
       },
+      removeCategory: function() {
+        var objIndex = model.categories.indexOf(selectedCategory);
+        model.categories.splice(objIndex, 1);
+      },
       toggleShowDone: function() {
         filters.isDone = !filters.isDone;
+      },
+      toggleDone: function(task) {
+        task.isDone = !task.isDone;
+        localStorage.setItem('model', JSON.stringify(model));
       },
       editCategory: function() {
         selectedCategory.inEdit = !selectedCategory.inEdit;
