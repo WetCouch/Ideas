@@ -28,10 +28,11 @@ angular.module('ideas.list', ['ideas.project'])
 
         $scope.toggleDone = function (task) {
             task.isDone = !task.isDone;
+            localStorage.setItem('model', JSON.stringify(model));
         };
 
         $scope.editTaskTitle = function (task) {
-          task.titleInEdit = !task.titleInEdit;
+          project.editTaskTitle(task);
         };
 
         $scope.editCategory = function () {

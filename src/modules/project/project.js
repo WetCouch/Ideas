@@ -35,7 +35,9 @@ angular.module('ideas.project', [])
       filters = {
         isDone: true
       };
-
+      if(localStorage.getItem('model')) {
+        model = JSON.parse(localStorage.getItem('model'));
+      }
     return {
       getModel: function() {
         return model;
@@ -58,6 +60,7 @@ angular.module('ideas.project', [])
       },
       editContent: function() {
         selectedTask.contentInEdit = !selectedTask.contentInEdit;
+        localStorage.setItem('model', JSON.stringify(model));
       },
       addCategory: function() {
         model.categories.push({
@@ -66,6 +69,7 @@ angular.module('ideas.project', [])
           isEditable: true,
           tasks: []
         });
+        localStorage.setItem('model', JSON.stringify(model));
       },
       addTask: function() {
         selectedCategory.tasks.push({
@@ -75,6 +79,11 @@ angular.module('ideas.project', [])
           titleInEdit: false,
           contentInEdit: false
         });
+        localStorage.setItem('model', JSON.stringify(model));
+      },
+      editTaskTitle: function(task) {
+        task.titleInEdit = !task.titleInEdit;
+        localStorage.setItem('model', JSON.stringify(model));
       },
       removeTaskByIndex: function(index) {
         selectedCategory.tasks.splice(index, 1);
@@ -87,7 +96,7 @@ angular.module('ideas.project', [])
       },
       editCategory: function() {
         selectedCategory.inEdit = !selectedCategory.inEdit;
+        localStorage.setItem('model', JSON.stringify(model));
       }
     };
-
   });
