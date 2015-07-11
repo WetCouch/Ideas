@@ -6,10 +6,14 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,100italic,300italic,400italic' rel='stylesheet'
           type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
     <link href="src/css/styles.css" rel="stylesheet">
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="src/modules/project/project.js"></script>
     <script src="src/modules/navigation/navigation.js"></script>
     <script src="src/modules/clock/clock.js"></script>
@@ -20,7 +24,7 @@
 <body ng-app="ideas">
 <div ng-controller="navController"  id="navbar">
     <clock class="clock"></clock>
-    <button class="navigation nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</button>
+    <md-button class="md-raised md-primary nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</md-button>
     <ul>
         <li ng-repeat="cat in cats"><input ng-show="cat.inEdit" type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /><a ng-show="!cat.inEdit" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)">{{ cat.name }}</a></li>
     </ul>
@@ -33,7 +37,7 @@
   <div class="list-header">
     <h2>{{ category.name }}</h2>
     <div class="list-settings">
-      <a ng-click="removeCategory()" ng-show="category.inEdit"><i class="fa fa-trash-o fa-lg"></i></a>
+      <a ng-click="removeCategory($event)" ng-show="category.inEdit"><i class="fa fa-trash-o fa-lg"></i></a>
       <a ng-click="editCategory()"><i class="fa fa-cogs fa-lg"></i></a>
     </div>
   </div>

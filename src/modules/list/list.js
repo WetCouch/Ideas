@@ -2,8 +2,8 @@
  * Created by wetcouch on 23.05.2015.
  */
 
-angular.module('ideas.list', ['ideas.project'])
-    .controller('listController', ['$scope', 'project', function ($scope, project) {
+angular.module('ideas.list', ['ideas.project', 'ngMaterial'])
+    .controller('listController', ['$scope', 'project', '$mdDialog', function ($scope, project, $mdDialog) {
         $scope.category = null;
         $scope.filters = project.getFilters();
 
@@ -38,8 +38,20 @@ angular.module('ideas.list', ['ideas.project'])
           project.editCategory();
         };
 
-        $scope.removeCategory = function () {
-          project.removeCategory();
-          project.editCategory();
+        $scope.removeCategory = function (ev) {
+          var confirm = $mdDialog.confirm()
+            .parent(angular.element(document.body))
+            .title('Are you sure you want to remove this category?')
+            .content('It will cause all of the items in this category to be deleted as well.')
+            .ariaLabel('Remove Category')
+            .ok('Confirm')
+            .cancel('Cancel')
+            .targetEvent(ev);
+          $mdDialog.show(confirm).then(function() {
+            project.removeCategory();
+            project.editCategory();
+          }, function() {
+            project.editCategory();
+          });
         };
     }]);
