@@ -1,10 +1,11 @@
 /**
  * Created by wetcouch on 19.05.2015.
  */
-angular.module('ideas.navigation', ['ideas.project'])
-    .controller('navController', ['$scope', 'project', function ($scope, project) {
+angular.module('ideas.navigation', ['ideas.project', 'ngMaterial'])
+    .controller('navController', ['$scope', 'project', '$mdSidenav', function ($scope, project, $mdSidenav) {
         $scope.cats = project.getModel().categories;
         $scope.filters = project.getFilters();
+        $scope.showNav = project.getShowNav();
 
         $scope.selectedIndex = null;
 
@@ -24,6 +25,12 @@ angular.module('ideas.navigation', ['ideas.project'])
         $scope.toggleShowDone = function () {
           project.toggleShowDone();
         };
+
+        if (project.showNav) {
+          $mdSidenav('nav').open();
+        } else {
+          $mdSidenav('nav').close();
+        }
 
         $scope.itemClicked(0);
     }]);

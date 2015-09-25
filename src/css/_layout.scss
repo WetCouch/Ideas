@@ -2,6 +2,8 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -33,36 +35,42 @@ a {
   text-decoration: none;
 }
 
-#navbar {
+nav {
+  width: 210px;
+  height: 100%;
+}
+
+.nav {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
   -webkit-flex-direction: column;
   background-color: $colorDark;
   width: 210px;
+  min-width: 210px;
+  height: 100%;
   color: $colorLight;
   .is-active {
     color: $colorBlue;
     font-family: Lato, sans-serif;
-    width: 165px;
-    padding-left: 50px;
+    width: 190px;
+    padding-left: 40px;
   }
 }
 
-#ideas {
+aside {
   flex: 3 0px;
   -webkit-flex: 3 0px;
 }
 
-#description {
+article {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
   -webkit-flex-direction: column;
   flex: 3 0px;
   -webkit-flex: 3 0px;
-  border-left: solid $colorRed 3px;
-  #header {
+  header {
     display: flex;
     display: -webkit-flex;
     color: $colorLight;
@@ -72,8 +80,9 @@ a {
     align-items: center;
     -webkit-align-items: center;
     box-shadow: $shadows;
+    border-left: solid $colorRed 3px;
     .header-title {
-      margin-left: 10%;
+      padding-left: 10%;
     }
   }
 }

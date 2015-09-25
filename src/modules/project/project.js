@@ -34,7 +34,8 @@ angular.module('ideas.project', [])
       selectedTask = null,
       filters = {
         isDone: true
-      };
+      },
+      showNav = true;
       if(localStorage.getItem('model')) {
         model = JSON.parse(localStorage.getItem('model'));
       }
@@ -87,6 +88,7 @@ angular.module('ideas.project', [])
       },
       removeTaskByIndex: function(index) {
         selectedCategory.tasks.splice(index, 1);
+        localStorage.setItem('model', JSON.stringify(model));
       },
       getCategoryByIndex: function(index) {
         return model.categories[index];
@@ -94,9 +96,11 @@ angular.module('ideas.project', [])
       removeCategory: function() {
         var objIndex = model.categories.indexOf(selectedCategory);
         model.categories.splice(objIndex, 1);
+        localStorage.setItem('model', JSON.stringify(model));
       },
       toggleShowDone: function() {
         filters.isDone = !filters.isDone;
+        localStorage.setItem('model', JSON.stringify(model));
       },
       toggleDone: function(task) {
         task.isDone = !task.isDone;
@@ -105,6 +109,9 @@ angular.module('ideas.project', [])
       editCategory: function() {
         selectedCategory.inEdit = !selectedCategory.inEdit;
         localStorage.setItem('model', JSON.stringify(model));
+      },
+      getShowNav: function () {
+        return showNav;
       }
     };
   });

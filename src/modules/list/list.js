@@ -2,8 +2,8 @@
  * Created by wetcouch on 23.05.2015.
  */
 
-angular.module('ideas.list', ['ideas.project', 'ngMaterial'])
-    .controller('listController', ['$scope', 'project', '$mdDialog', function ($scope, project, $mdDialog) {
+angular.module('ideas.list', ['ideas.project'])
+    .controller('listController', ['$scope', 'project', '$mdDialog',  function ($scope, project, $mdDialog) {
         $scope.category = null;
         $scope.filters = project.getFilters();
 
@@ -53,5 +53,10 @@ angular.module('ideas.list', ['ideas.project', 'ngMaterial'])
           }, function() {
             project.editCategory();
           });
+        };
+
+        $scope.toggleShowNav = function () {
+          project.showNav = !project.showNav;
+          console.log(project.showNav);
         };
     }]);

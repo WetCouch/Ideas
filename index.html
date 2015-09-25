@@ -22,18 +22,19 @@
     <script src="src/init.js"></script>
 </head>
 <body ng-app="ideas">
-<div ng-controller="navController"  id="navbar">
+<nav ng-controller="navController" ng-show="showNav == true" class="nav">
     <clock class="clock"></clock>
     <md-button class="md-raised md-primary nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</md-button>
     <ul>
-        <li ng-repeat="cat in cats"><input ng-show="cat.inEdit" type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /><a ng-show="!cat.inEdit" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)">{{ cat.name }}</a></li>
+      <li ng-repeat="cat in cats track by $index">
+        <input ng-show="cat.inEdit" type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /><a ng-show="!cat.inEdit" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)">{{ cat.name }}</a></li>
     </ul>
     <div class="nav-icons">
-        <a ng-click="addCategory()" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
-        <a ng-click="toggleShowDone()" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': !filters.isDone}"><i class="fa fa-check fa-2x"></i></a>
+      <a ng-click="addCategory()" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
+      <a ng-click="toggleShowDone()" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': !filters.isDone}"><i class="fa fa-check fa-2x"></i></a>
     </div>
-</div>
-<div id="ideas" ng-controller="listController">
+</nav>
+<aside ng-controller="listController">
   <div class="list-header">
     <h2>{{ category.name }}</h2>
     <div class="list-settings">
@@ -42,7 +43,7 @@
     </div>
   </div>
     <ul class="list">
-        <li ng-repeat="task in category.tasks" ng-hide="!filters.isDone && task.isDone"><div class="list-component">
+        <li ng-repeat="task in category.tasks track by $index" ng-hide="!filters.isDone && task.isDone"><div class="list-component">
             <input ng-show="task.titleInEdit" type="text" class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">
             <a ng-show="!task.titleInEdit" class="list-title" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">{{ task.name }}</a>
             <a ng-click="editTaskTitle(task)" class="list-icon list-icon-settings"><i class="fa fa-cogs fa-lg"></i></a>
@@ -50,13 +51,13 @@
             <a ng-click="toggleDone(task)" ng-class="{ 'is-unactive': !task.isDone }" class="list-icon list-icon-check"><i class="fa fa-check fa-lg"></i></a>
         </div></li>
     </ul>
-</div>
-<div id="description" ng-controller="contentController">
-    <div id="header">
-        <div class="header-title">
-            <h1>{{ task.name }}</h1>
-        </div>
-    </div>
+</aside>
+<article ng-controller="contentController" ng-hide="task === null">
+    <header>
+      <div class="header-title">
+          <h1>{{ task.name }}</h1>
+      </div>
+    </header>
     <div class="content" ng-show="task">
         <div class="con-edit">
             <a ng-click="editContent()" class="con-edit">Edit...</a>
@@ -66,6 +67,6 @@
           {{ task.content }}
         </p>
     </div>
-</div>
+</article>
 </body>
 </html>
