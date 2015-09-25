@@ -30,8 +30,9 @@
         <input ng-show="cat.inEdit" type="text" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)" ng-model="cat.name" /><a ng-show="!cat.inEdit" class="navigation nav-link" ng-class="{ 'is-active': $index == selectedIndex }" ng-click="itemClicked($index)">{{ cat.name }}</a></li>
     </ul>
     <div class="nav-icons">
-      <a ng-click="addCategory()" class="nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
-      <a ng-click="toggleShowDone()" class="nav-icon nav-icon-check" ng-class="{ 'is-unactive': !filters.isDone}"><i class="fa fa-check fa-2x"></i></a>
+      <a ng-click="addCategory()" class="nav-icon-tasks nav-icon nav-icon-add is-unactive"><i class="fa fa-plus fa-2x"></i></a>
+      <a ng-click="toggleShowDone()" class="nav-icon-tasks nav-icon nav-icon-check" ng-class="{ 'is-unactive': !filters.isDone}"><i class="fa fa-check fa-2x"></i></a>
+      <a ng-click="clearLocal($event)" class="nav-icon-tasks nav-icon is-unactive nav-icon-clear"><i class="fa fa-minus-square-o fa-2x"></i></a>
     </div>
 </nav>
 <aside ng-controller="listController">

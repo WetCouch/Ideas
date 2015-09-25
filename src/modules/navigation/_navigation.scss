@@ -28,13 +28,15 @@
 
 .nav-icons {
   font-size: 25px;
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  justify-content: space-around;
-  -webkit-justify-content: space-around;
-  margin-top: 25%;
+
+  .nav-icon-tasks {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    margin-top: 25%;
+    text-align: center;
+  }
 
   a:hover {
     color: $colorBlue;

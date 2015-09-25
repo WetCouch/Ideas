@@ -4,32 +4,32 @@
 angular.module('ideas.project', [])
   .service('project', function() {
     var model = {
-        categories: [{
-          name: 'Inbox',
-          isEditable: false,
-          inEdit: false,
-          tasks: []
-        }, {
-          name: 'Big projects',
-          isEditable: true,
-          inEdit: false,
-          tasks: [{
-            name: 'Ideas',
-            isDone: false,
-            content: 'Add your every idea for a project to this app',
-            titleInEdit: false,
-            contentInEdit: false
-
+          categories: [{
+            name: 'Inbox',
+            isEditable: false,
+            inEdit: false,
+            tasks: []
           }, {
-            name: 'Quiz',
-            isDone: true,
-            content: 'Small quiz application to test my <input> skills',
-            titleInEdit: false,
-            contentInEdit: false
+            name: 'Big projects',
+            isEditable: true,
+            inEdit: false,
+            tasks: [{
+              name: 'Ideas',
+              isDone: false,
+              content: 'Add your every idea for a project to this app',
+              titleInEdit: false,
+              contentInEdit: false
 
+            }, {
+              name: 'Quiz',
+              isDone: true,
+              content: 'Small quiz application to test my <input> skills',
+              titleInEdit: false,
+              contentInEdit: false
+
+            }]
           }]
-        }]
-      },
+        },
       selectedCategory = null,
       selectedTask = null,
       filters = {
@@ -112,6 +112,10 @@ angular.module('ideas.project', [])
       },
       getShowNav: function () {
         return showNav;
+      },
+      clearLocal: function () {
+        localStorage.clear();
+        location.reload();
       }
     };
   });
