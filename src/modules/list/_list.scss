@@ -4,6 +4,7 @@
   width: 100%;
   height: 20%;
   color: $colorRed;
+  display: inline-block;
   a:hover {
     color: red;
   }
@@ -11,7 +12,8 @@
     font-size: 32px;
     float: right;
     margin-right: 15%;
-    .fa-trash-o {
+    margin-top: -30px;
+    .fa-recycle {
       margin-right: 10px;
     }
   }
@@ -31,6 +33,11 @@
     .list-title {
       margin-bottom: 20px;
       color: $colorBlue;
+    }
+    input {
+      font-size: 1.1vmax;
+      border-bottom: 1px solid $colorRed;
+      padding-bottom: 5px;
     }
     .is-selected {
       color: $colorGreen;

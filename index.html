@@ -39,13 +39,13 @@
   <div class="list-header">
     <h2>{{ category.name }}</h2>
     <div class="list-settings">
-      <a ng-click="removeCategory($event)" ng-show="category.inEdit"><i class="fa fa-trash-o fa-lg"></i></a>
-      <a ng-click="editCategory()"><i class="fa fa-cogs fa-lg"></i></a>
+      <a ng-click="removeCategory($event)" ng-show="category.inEdit"><i class="fa fa-recycle fa-lg"></i></a>
+      <a ng-click="editCategory()"><i class="fa fa-edit fa-lg"></i></a>
     </div>
   </div>
     <ul class="list">
         <li ng-repeat="task in category.tasks track by $index" ng-hide="!filters.isDone && task.isDone"><div class="list-component">
-            <input ng-show="task.titleInEdit" type="text" class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">
+            <input ng-blur="task.titleInEdit=!task.titleInEdit;" ng-show="task.titleInEdit" type="text" class="list-title" ng-model="task.name" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">
             <a ng-show="!task.titleInEdit" class="list-title" ng-class="{ 'is-selected': $index == selectedIndex }" ng-click="taskClicked($index)">{{ task.name }}</a>
             <a ng-click="editTaskTitle(task)" class="list-icon list-icon-settings"><i class="fa fa-cogs fa-lg"></i></a>
             <a ng-click="removeTask($index)" class="list-icon list-icon-delete"><i class="fa fa-trash-o fa-lg"></i></a>

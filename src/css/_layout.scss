@@ -35,12 +35,13 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 nav {
   width: 210px;
   height: 100%;
-}
-
-.nav {
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
@@ -50,17 +51,18 @@ nav {
   min-width: 210px;
   height: 100%;
   color: $colorLight;
-  .is-active {
-    color: $colorBlue;
-    font-family: Lato, sans-serif;
-    width: 190px;
-    padding-left: 40px;
-  }
 }
 
 aside {
   flex: 3 0px;
   -webkit-flex: 3 0px;
+}
+
+input {
+  background-color: $colorLight;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
 }
 
 article {
@@ -70,23 +72,24 @@ article {
   -webkit-flex-direction: column;
   flex: 3 0px;
   -webkit-flex: 3 0px;
+  transition: all 1s;
   header {
     display: flex;
     display: -webkit-flex;
     color: $colorLight;
-    background-color: $colorDark;
+    background-color: #D7361D;
     flex-grow: 1;
     -webkit-flex-grow: 1;
     align-items: center;
     -webkit-align-items: center;
-    box-shadow: $shadows;
-    border-left: solid $colorRed 3px;
+    box-shadow: 1px 2px 4px 1px $colorDark;
     .header-title {
       padding-left: 10%;
     }
   }
 }
 
-a:hover {
-
+article.ng-hide {
+  margin-right: -100%;
+  padding: 0;
 }

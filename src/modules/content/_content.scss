@@ -1,6 +1,6 @@
 .content {
-  flex-grow: 10;
-  -webkit-flex-grow: 10;
+  flex-grow: 12;
+  -webkit-flex-grow: 12;
   border-left: solid #979797 1px;
 }
 
@@ -19,6 +19,7 @@
 }
 
 .con-text {
+  font-weight: normal;
   font-size: 16px;
   margin-top: 5%;
   margin-left: 7%;
@@ -29,7 +30,10 @@
 }
 
 .con-text-edit {
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
   width: 80%;
-  height: 50%;
-  border: 1px solid $colorDark;
+  height: 300px;
+  background-color: $colorLight;
+  border: 1px solid $colorGray;
 }
