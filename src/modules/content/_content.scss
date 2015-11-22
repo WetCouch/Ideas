@@ -1,39 +1,105 @@
 .content {
-  flex-grow: 12;
-  -webkit-flex-grow: 12;
-  border-left: solid #979797 1px;
+    flex-grow: 10;
+    -webkit-flex-grow: 12;
+    border-left: solid #979797 1px;
 }
-
 .con-edit {
-  font-family: Lato, sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-  color: $colorBlue;
-  width: 48px;
-  margin-top: 3%;
-  margin-right: 3%;
-  margin-left: auto;
-  a:hover {
-    color: $colorGreen;
-  }
+    font-family: Lato, sans-serif;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 18px;
+    color: $colorBlue;
+    width: 48px;
+    float: right;
+    margin-top: 3%;
+    margin-right: 3%;
+    margin-left: auto;
+    transition: color 0.5s;
+    text-align: center;
+    .fa-cloud-uplad {
+        font-size: 30px;
+    }
+    a:hover {
+        color: $colorGreen;
+    }
 }
-
 .con-text {
-  font-weight: normal;
-  font-size: 16px;
-  margin-top: 5%;
-  margin-left: 7%;
-  margin-right: 7%;
-  padding-bottom: 5%;
-  padding-left: 2%;
-  border-bottom: solid $colorRed 1px;
+    font-weight: normal;
+    font-size: 16px;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-right: 7%;
+    padding-bottom: 5%;
+    padding-left: 2%;
+    border-bottom: solid $colorRed 1px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    b,
+    strong {
+        font-weight: bold !important;
+    }
+    i,
+    em {
+        font-style: italic !important;
+    }
+    h3 {
+        font-size: 32px;
+        margin-left: -10px;
+    }
+    h4 {
+        font-size: 26px;
+        margin-left: -7px;
+    }
+    h5 {
+        font-size: 20px;
+        margin-left: -4px;
+    }
+    ul {
+        display: block;
+        list-style-type: disc;
+        margin-top: 1em;
+        margin-bottom: 1 em;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 40px;
+    }
+    ol {
+        display: block;
+        list-style-type: decimal;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 40px;
+    }
 }
 
-.con-text-edit {
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  width: 80%;
-  height: 300px;
-  background-color: $colorLight;
-  border: 1px solid $colorGray;
+.con-text:focus {
+    border-bottom: solid $colorBlue 5px;
+}
+
+.con-btns {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+    .edit-btn {
+        margin-left:1%;
+        margin-right: 1%;
+        background-color: $colorLight;
+        border: none;
+        color: $colorBlue;
+        padding: 1% 2% 1% 2%;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        .btn-smaller {
+            font-size: 15px;
+        }
+    }
+    .edit-btn:hover {
+        background-color: $colorGreen;
+        border: 2px solid $colorGreen;
+    }
+    .edit-btn:active {
+        background-color: $colorRed;
+    }
 }

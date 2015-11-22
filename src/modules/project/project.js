@@ -16,16 +16,14 @@ angular.module('ideas.project', [])
             tasks: [{
               name: 'Ideas',
               isDone: false,
-              content: 'Add your every idea for a project to this app',
+              content: 'Add every of your ideas for a project into this app',
               titleInEdit: false,
-              contentInEdit: false
 
             }, {
               name: 'Quiz',
               isDone: true,
               content: 'Small quiz application to test my <input> skills',
               titleInEdit: false,
-              contentInEdit: false
 
             }]
           }]
@@ -52,15 +50,16 @@ angular.module('ideas.project', [])
       setSelectedCategory: function(category) {
         selectedCategory = category;
         selectedTask = null;
+        localStorage.setItem('model', JSON.stringify(model));
       },
       getSelectedTask: function() {
         return selectedTask;
       },
       setSelectedTask: function(task) {
         selectedTask = task;
+        localStorage.setItem('model', JSON.stringify(model));
       },
-      editContent: function() {
-        selectedTask.contentInEdit = !selectedTask.contentInEdit;
+      saveContent: function() {
         localStorage.setItem('model', JSON.stringify(model));
       },
       addCategory: function() {

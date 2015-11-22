@@ -10,9 +10,34 @@ angular.module('ideas.content', ['ideas.project'])
         }, function(task) {
             $scope.task = task;
         });
-
-        $scope.editContent = function() {
-          project.editContent();
+        $scope.saveContent = function() {
+          project.saveContent();
         };
-
+        $scope.toggleBold = function () {
+            document.execCommand('bold');
+        };
+        $scope.toggleItalic = function () {
+            document.execCommand('italic');
+        };
+        $scope.toggleUnderline = function () {
+            document.execCommand('underline');
+        };
+        $scope.addH1 = function () {
+            document.execCommand('formatBlock', false, '<h3>');
+        };
+        $scope.addH2 = function () {
+            document.execCommand('formatBlock', false, '<h4>');
+        };
+        $scope.addH3 = function () {
+            document.execCommand('formatBlock', false, '<h5>');
+        };
+        $scope.makeDefault = function () {
+            document.execCommand('formatBlock', false, '<p>');
+        };
+        $scope.addUl = function () {
+            document.execCommand('insertUnorderedList');
+        };
+        $scope.addOl = function () {
+            document.execCommand('insertOrderedList');
+        };
     }]);

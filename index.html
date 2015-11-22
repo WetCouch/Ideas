@@ -14,16 +14,20 @@
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="src/modules/project/project.js"></script>
     <script src="src/modules/navigation/navigation.js"></script>
     <script src="src/modules/clock/clock.js"></script>
     <script src="src/modules/list/list.js"></script>
     <script src="src/modules/content/content.js"></script>
+    <script src="src/directives/contenteditable.js"></script>
     <script src="src/init.js"></script>
 </head>
 <body ng-app="ideas">
-<nav ng-controller="navController" ng-show="showNav == true" class="nav">
+<nav ng-controller="navController" class="nav">
     <clock class="clock"></clock>
+
+</div>
     <md-button class="md-raised md-primary nav-button" ng-disabled="selectedIndex == null" ng-click="addTask()">NEW</md-button>
     <ul>
       <li ng-repeat="cat in cats track by $index">
@@ -61,12 +65,22 @@
     </header>
     <div class="content" ng-show="task">
         <div class="con-edit">
-            <a ng-click="editContent()" class="con-edit">Edit...</a>
+        	<a ng-click="saveContent()" class="con-edit"><i class="fa fa-cloud-upload fa-lg"></i> save</a>
         </div>
-        <textarea ng-show="task.contentInEdit" class="con-text con-text-edit" ng-model="task.content"></textarea>
-        <p ng-show="!task.contentInEdit" class="con-text">
-          {{ task.content }}
-        </p>
+		<div class="con-text" contenteditable name="content" ng-model="task.content" strip-br="true">
+            {{ task.content }}
+        </div>
+        <div class="con-btns">
+            <button class="edit-btn" ng-click="toggleBold()"><i class="fa fa-bold"></i></button>
+            <button class="edit-btn" ng-click="toggleItalic()"><i class="fa fa-italic"></i></button>
+            <button class="edit-btn" ng-click="toggleUnderline()"><i class="fa fa-underline"></i></button>
+            <button class="edit-btn" ng-click="addH1()"><i class="fa fa-header"></i><span class="btn-smaller"><i class="fa fa-plus"></i></span></button>
+            <button class="edit-btn" ng-click="addH2()"><i class="fa fa-header"></i></button>
+            <button class="edit-btn" ng-click="addH3()"><i class="fa fa-header"></i><span class="btn-smaller"><i class="fa fa-minus"></i></span></button>
+            <button class="edit-btn" ng-click="makeDefault()"><i class="fa fa-paragraph"></i></button>
+            <button class="edit-btn" ng-click="addUl()"><i class="fa fa-list-ul"></i></button>
+            <button class="edit-btn" ng-click="addOl()"><i class="fa fa-list-ol"></i></button>
+        </div>
     </div>
 </article>
 </body>
